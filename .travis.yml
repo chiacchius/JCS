@@ -1,0 +1,14 @@
+{
+  "language": "java",
+  "os": [
+    "linux"
+  ],
+  "dist": "xenial",
+  "install": [
+    "true"
+  ],
+
+  "script": [
+    "mvn test"
+  ]
+}

@@ -1,0 +1,158 @@
+log4j:WARN No appenders could be found for logger (org.apache.jcs.engine.control.CompositeCacheManager).
+log4j:WARN Please initialize the log4j system properly.
+------------------------------------------
+testTwoDeepRemoval
+Confirmed that 500 items could be found
+Confirmed that 500 items were removed
+Region Name = testCache1
+HitCountRam = 501
+HitCountAux = 0
+---------------------------LRU Memory Cache
+List Size = 0
+Map Size = 0
+Put Count = 501
+Hit Count = 501
+Miss Count = 501
+------------------------------------------
+testSingleDepthRemoval
+Confirmed that 500 items could be found
+Confirmed that 500 items were removed
+Region Name = testCache1
+HitCountRam = 1002
+HitCountAux = 0
+---------------------------LRU Memory Cache
+List Size = 0
+Map Size = 0
+Put Count = 1002
+Hit Count = 1002
+Miss Count = 1002
+------------------------------------------
+testRemoveAll
+Confirmed that 500 items could be found
+Region Name = testCache1
+HitCountRam = 1503
+HitCountAux = 0
+---------------------------LRU Memory Cache
+List Size = 501
+Map Size = 501
+Put Count = 1503
+Hit Count = 1503
+Miss Count = 1002
+Confirmed that all items were removed
+------------------------------------------
+testRemoveAll
+Confirmed that 500 items could be found
+Region Name = testCache1
+HitCountRam = 2004
+HitCountAux = 0
+---------------------------LRU Memory Cache
+List Size = 501
+Map Size = 501
+Put Count = 2004
+Hit Count = 2004
+Miss Count = 1503
+Confirmed that all items were removed
+------------------------------------------
+testTwoDeepRemoval
+Confirmed that -1 items could be found
+Confirmed that -1 items were removed
+Region Name = testCache2
+HitCountRam = 0
+HitCountAux = 0
+---------------------------LRU Memory Cache
+List Size = 0
+Map Size = 0
+Put Count = 0
+Hit Count = 0
+Miss Count = 0
+------------------------------------------
+testSingleDepthRemoval
+Confirmed that -1 items could be found
+Confirmed that -1 items were removed
+Region Name = testCache2
+HitCountRam = 0
+HitCountAux = 0
+---------------------------LRU Memory Cache
+List Size = 0
+Map Size = 0
+Put Count = 0
+Hit Count = 0
+Miss Count = 0
+------------------------------------------
+testRemoveAll
+Confirmed that -1 items could be found
+Region Name = testCache2
+HitCountRam = 0
+HitCountAux = 0
+---------------------------LRU Memory Cache
+List Size = 0
+Map Size = 0
+Put Count = 0
+Hit Count = 0
+Miss Count = 0
+Confirmed that all items were removed
+------------------------------------------
+testRemoveAll
+Confirmed that -1 items could be found
+Region Name = testCache2
+HitCountRam = 0
+HitCountAux = 0
+---------------------------LRU Memory Cache
+List Size = 0
+Map Size = 0
+Put Count = 0
+Hit Count = 0
+Miss Count = 0
+Confirmed that all items were removed
+------------------------------------------
+testTwoDeepRemoval
+Confirmed that 0 items could be found
+Confirmed that 0 items were removed
+Region Name = testCache3
+HitCountRam = 1
+HitCountAux = 0
+---------------------------LRU Memory Cache
+List Size = 0
+Map Size = 0
+Put Count = 1
+Hit Count = 1
+Miss Count = 1
+------------------------------------------
+testSingleDepthRemoval
+Confirmed that 0 items could be found
+Confirmed that 0 items were removed
+Region Name = testCache3
+HitCountRam = 2
+HitCountAux = 0
+---------------------------LRU Memory Cache
+List Size = 0
+Map Size = 0
+Put Count = 2
+Hit Count = 2
+Miss Count = 2
+------------------------------------------
+testRemoveAll
+Confirmed that 0 items could be found
+Region Name = testCache3
+HitCountRam = 3
+HitCountAux = 0
+---------------------------LRU Memory Cache
+List Size = 1
+Map Size = 1
+Put Count = 3
+Hit Count = 3
+Miss Count = 2
+Confirmed that all items were removed
+------------------------------------------
+testRemoveAll
+Confirmed that 0 items could be found
+Region Name = testCache3
+HitCountRam = 4
+HitCountAux = 0
+---------------------------LRU Memory Cache
+List Size = 1
+Map Size = 1
+Put Count = 4
+Hit Count = 4
+Miss Count = 3
+Confirmed that all items were removed
