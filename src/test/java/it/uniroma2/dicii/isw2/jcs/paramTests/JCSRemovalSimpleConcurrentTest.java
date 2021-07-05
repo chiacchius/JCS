@@ -49,6 +49,8 @@ public class JCSRemovalSimpleConcurrentTest{
 
     public JCSRemovalSimpleConcurrentTest( String instance, int count )
     {
+        System.out.println("starting setUp");
+
         this.instance = instance;
         this.count = count;
     }
@@ -60,10 +62,10 @@ public class JCSRemovalSimpleConcurrentTest{
         return Arrays.asList(new Object[][] {
 
                 // String instance, int count
-
                 {"testCache1", 500},
                 {"testCache2", -1},
                 {"testCache3", 0}
+
 
         });
     }
@@ -96,6 +98,10 @@ public class JCSRemovalSimpleConcurrentTest{
 
         //int count = 500;
         //JCS jcs = JCS.getInstance( /*"testCache1"*/ );
+
+        if (jcs==null){
+            return;
+        }
 
         for ( int i = 0; i <= count; i++ )
         {

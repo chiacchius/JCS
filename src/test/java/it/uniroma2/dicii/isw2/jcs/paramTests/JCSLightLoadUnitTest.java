@@ -22,6 +22,7 @@ package it.uniroma2.dicii.isw2.jcs.paramTests;
 
 import org.apache.jcs.JCS;
 import org.apache.jcs.access.exception.CacheException;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,8 +42,10 @@ import static org.junit.Assert.*;
 public class JCSLightLoadUnitTest {
 
     private int items;
+    private int removeItem;
     private String instance;
     private JCS jcs;
+    private String configFileName;
 
     /**
      * Test setup
@@ -51,16 +54,26 @@ public class JCSLightLoadUnitTest {
     public void setUp()
             throws CacheException
     {
-        JCS.setConfigFilename( "/TestSimpleLoad.ccf" );
+        System.out.println("starting setUp");
+        JCS.setConfigFilename( configFileName );
+
         jcs = JCS.getInstance( instance);
-        jcs.clear();
+
+
+        for (int i = 1; i <= items; i++) {
+            jcs.put(i + ":key", "data" + i);
+
+        }
     }
 
 
-    public JCSLightLoadUnitTest( String instance, int items )
+    public JCSLightLoadUnitTest(String configFileName, String instance, int items,int removeItem)
     {
+
+        this.configFileName=configFileName;
        this.instance=instance;
        this.items = items;
+       this.removeItem = removeItem;
     }
 
 
@@ -70,11 +83,12 @@ public class JCSLightLoadUnitTest {
     public static Collection<?> getParameters(){
         return Arrays.asList(new Object[][] {
 
-                // String instance, int items
-
-                {"testCache1", 999},
-                {"testCache2", -1},
-                {"testCache3", 0}
+                // String configFileName, String instance, int items,int removeItem
+                
+                //{null, "testCache0", 100, 3},
+                {"/TestSimpleLoad.ccf", "testCache1", 999, 300},
+                {"/TestSimpleLoad.ccf", "testCache2", -1, 0},
+                {"/TestSimpleLoad.ccf", "testCache3", 0, 1}
 
         });
     }
@@ -94,14 +108,18 @@ public class JCSLightLoadUnitTest {
         //        cattr.setMaxObjects( 20002 );
         //        jcs.setCacheAttributes( cattr );
 
-        for ( int i = 1; i <= items; i++ )
-        {
-            jcs.put( i + ":key", "data" + i );
+        System.out.println("starting test");
+        if (jcs == null){
+            Assert.assertNull(jcs);
+            System.out.println("jcs is null");
+            return;
         }
 
         for ( int i = items; i > 0; i-- )
         {
+
             String res = (String) jcs.get( i + ":key" );
+
             if ( res == null )
             {
                 assertNotNull( "[" + i + ":key] should not be null", res );
@@ -109,8 +127,9 @@ public class JCSLightLoadUnitTest {
         }
 
         // test removal
-        jcs.remove( "300:key" );
-        assertNull( jcs.get( "300:key" ) );
+        jcs.remove(removeItem + ":key" );
+        assertNull( jcs.get(removeItem + ":key" ) );
+        System.out.println("test finished");
 
     }
 
