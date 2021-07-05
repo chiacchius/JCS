@@ -1,4 +1,4 @@
-# JCS Parametrized Tests
+# JCS
 
 ### How to generate jacoco.exec
 >mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package

@@ -84,7 +84,7 @@ public class JCSLightLoadUnitTest {
         return Arrays.asList(new Object[][] {
 
                 // String configFileName, String instance, int items,int removeItem
-                
+
                 //{null, "testCache0", 100, 3},
                 {"/TestSimpleLoad.ccf", "testCache1", 999, 300},
                 {"/TestSimpleLoad.ccf", "testCache2", -1, 0},
